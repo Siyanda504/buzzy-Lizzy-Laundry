@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buzy Lizzy Laundry</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: white;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    #video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    #video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content-overlay {
+      background-color: rgba(255, 255, 255, 0.88);
+      position: relative;
+      z-index: 1;
+      padding-top: 60px; /* Removed excessive gap */
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 230, 102, 0.98);
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: green;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 30px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #f7c600;
+      font-size: 2.8em;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: green;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: #f7c600;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    ul {
+      list-style-type: square;
+      max-width: 600px;
+      margin: auto;
+      color: green;
+      padding-left: 20px;
+    }
+
+    .pricing {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .price-box {
+      background: #f1f1f1;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .price-box:hover {
+      transform: scale(1.05);
+    }
+
+    .price-box h3 {
+      color: #f7c600;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .price-box p {
+      color: green;
+      line-height: 1.6;
+    }
+
+    #gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 50px 20px;
+      background-color: #fff;
+    }
+
+    #gallery img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      opacity: 0.95;
+    }
+
+    #gallery img:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    footer {
+      background-color: #f7c600;
+      color: white;
+      text-align: center;
+      padding: 20px 10px 40px;
+    }
+
+    .social-icons a {
+      color: white;
+      text-decoration: none;
+      font-size: 30px;
+      margin: 0 15px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #333;
+      transform: scale(1.2);
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f7c600;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .price-box {
+        max-width: 90%;
+      }
+
+      #gallery img {
+        max-width: 90%;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="video-background">
+    <video autoplay muted loop>
+      <source src="laundryClip.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#pricing">Clothing Pricing</a>
+    <a href="#sneakers">Sneaker Wash</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="content-overlay">
+
+    <header>
+      <h1>Buzy Lizzy Laundry</h1>
+      <p>"Your Clothes Deserve The Best"</p>
+    </header>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Pick up and Deliveries</li>
+        <li>Hand Wash and Machine Wash</li>
+        <li>Tumble and Line Dry</li>
+        <li>Folding and Packaging</li>
+        <li>Dry Cleaning</li>
+        <li>Shoe and Tekkie Cleaning</li>
+      </ul>
+    </section>
+
+    <section id="pricing">
+      <h2>Clothing Pricing</h2>
+      <div class="pricing">
+        <div class="price-box">
+          <h3>Standard Price</h3>
+          <p>
+            0-5 KG: R130<br/>
+            +R15 per extra KG<br/>
+            Blankets & Duvets: R25/KG<br/>
+            Ironing: R15 per item
+          </p>
+        </div>
+        <div class="price-box">
+          <h3>Student Price</h3>
+          <p>
+            0-5 KG: R100<br/>
+            +R15 per extra KG<br/>
+            Blankets & Duvets: R25/KG<br/>
+            Ironing: R15 per item
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sneakers">
+      <h2>Sneaker Wash Pricing</h2>
+      <div class="pricing">
+        <div class="price-box">
+          <h3>Standard</h3>
+          <p>Sneaker Wash: R120 per pair<br/>Shoe Polish: R30 per pair</p>
+        </div>
+        <div class="price-box">
+          <h3>Student</h3>
+          <p>Sneaker Wash: R100 per pair<br/>Shoe Polish: R20 per pair</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <img src="folding.jpg" alt="Folding Service" />
+      <img src="line drying.jpg" alt="Line Drying" />
+    </section>
+
+    <footer id="contact">
+      <p>📍 Location: Blackhorse Center opposite Builders Express</p>
+      <p>📞 WhatsApp: +27 731 411 619 | +27 671 992 142</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/15AZHi9Bcf/?mibextid=wwXIfr" target="_blank" title="Facebook">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="https://wa.me/27731411619" target="_blank" title="WhatsApp">
+          <i class="fab fa-whatsapp-square"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
+    ↑
+  </button>
+
+</body>
+</html>

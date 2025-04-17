@@ -1,0 +1,22 @@
+.button {
+    background: #f7c600;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(247, 198, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background: #ffdb4d;
+    box-shadow: 0 0 18px rgba(247, 198, 0, 0.7);
+    transform: scale(1.05);
+  }
+  
